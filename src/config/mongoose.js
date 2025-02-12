@@ -3,9 +3,8 @@ const { MONGO_DB_INSTANCE } = require("../../environment");
 let mongoConnectionHealthy = true;
 mongoose.Promise = global.Promise;
 
-module.exports.connectMongoose = () => {
-  console.log("::: ", MONGO_DB_INSTANCE);
-  mongoose
+module.exports.connectMongoose = async () => {
+  await mongoose
     .connect(MONGO_DB_INSTANCE, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
